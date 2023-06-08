@@ -36,15 +36,16 @@ tortoise = tortoise->next;
 }
 return (nodes);
 }
+tortoise = tortoise->next;
+hare = (hare->next)->next;
 }
+return (0);
 }
 /**
-
  * print_listint_safe - Prints a listint_t list safely.
  * @head: A pointer to the head of the listint_t list.
  * Return: The number of nodes in the list.
  */
-
 size_t print_listint_safe(const listint_t *head)
 {
 size_t nodes, index = 0;
@@ -66,4 +67,5 @@ head = head->next;
 }
 printf("-> [%p] %d\n", (void *)head, head->n);
 }
+return (nodes);
 }
