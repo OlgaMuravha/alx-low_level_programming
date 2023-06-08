@@ -11,41 +11,40 @@ size_t print_listint_safe(const listint_t *head);
  */
 size_t looped_listint_len(const listint_t *head)
 {
-const listint_t *lion, *cheetah;
+const listint_t *tortoise, *hare;
 size_t nodes = 1;
 if (head == NULL || head->next == NULL)
 return (0);
-lion = head->next;
-cheetah = (head->next)->next;
-while (cheetah)
+tortoise = head->next;
+hare = (head->next)->next;
+while (hare)
 {
-if (lion == cheetah)
+if (tortoise == hare)
 {
-lion = head;
-while (lion != cheetah)
+tortoise = head;
+while (tortoise != hare)
 {
 nodes++;
-lion = lion->next;
-cheetah = cheetah->next;
+tortoise = tortoise->next;
+hare = hare->next;
 }
-lion = lion->next;
-while (cheetah != lion)
+tortoise = tortoise->next;
+while (tortoise != hare)
 {
 nodes++;
-cheetah = cheetah->next;
+tortoise = tortoise->next;
 }
 return (nodes);
 }
-cheetah = cheetah->next;
-lion = (lion->next)->next;
 }
-return (0);
 }
 /**
+
  * print_listint_safe - Prints a listint_t list safely.
  * @head: A pointer to the head of the listint_t list.
  * Return: The number of nodes in the list.
  */
+
 size_t print_listint_safe(const listint_t *head)
 {
 size_t nodes, index = 0;
@@ -67,5 +66,4 @@ head = head->next;
 }
 printf("-> [%p] %d\n", (void *)head, head->n);
 }
-return (nodes);
 }
