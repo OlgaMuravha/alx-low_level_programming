@@ -6,19 +6,19 @@
  */
 void print_binary(unsigned long int n)
 {
-int i, count = 0;
-unsigned long int current;
-for (i = 63; i >= 0; i--)
+if (n == 0)
 {
-current = n >> i;
-if (current & 1)
+_putchar('0');
+return;
+}
+int i;
+unsigned long int mask = 1UL << 63;
+for (i = 0; i < 64; i++)
 {
+if (n & mask)
 _putchar('1');
-count++;
-}
-else if (count)
+else
 _putchar('0');
+mask >>= 1;
 }
-if (!count)
-_putchar('0');
 }
