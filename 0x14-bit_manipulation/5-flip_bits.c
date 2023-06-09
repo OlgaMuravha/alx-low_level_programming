@@ -1,16 +1,19 @@
 #include <stdio.h>
 #include "main.h"
-
 /**
- *get_endianness - checks if machine is endianness
- *Return: return 0
+ * flip_bits - numbers counted
+ * @n: numbers defined
+ * @m: numbers defined
+ * Return: return of bits
  */
-int get_endianness(void)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-unsigned int i = 1;
-char *c = (char *)&i;
-if (*c)
-return (1);
-else
-return (0);
+unsigned long int xor_result = n ^ m;
+unsigned int count = 0;
+while (xor_result > 0)
+{
+count += xor_result & 1;
+xor_result >>= 1;
+}
+return (count);
 }
